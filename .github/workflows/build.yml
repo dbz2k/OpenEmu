@@ -14,10 +14,9 @@ jobs:
          submodules: 'recursive'
 
       - name: Build
-        run: xcodebuild -workspace OpenEmu.xcworkspace -scheme "OpenEmu" -configuration Release
+        run: xcodebuild -workspace OpenEmu.xcworkspace -scheme "OpenEmu + Cores" -configuration Release
       - name: Upload Artifacts
-        uses: actions/checkout@v3
+        uses: actions/upload-artifact@v3
         with:
           name: openemu
-          path: |
-            ~/Library/Developer/Xcode/DerivedData
+          path: ~/Library/Developer/Xcode/DerivedData
