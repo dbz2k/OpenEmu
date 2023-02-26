@@ -1,0 +1,20 @@
+name: Build
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  macos:
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@latest
+      - name: Build
+        run: xcodebuild -workspace OpenEmu.xcworkspace -scheme "OpenEmu" -configuration Release
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@latest
+        with:
+          name: openemu
+          path: |
+            ~/Library/Developer/Xcode/DerivedData
