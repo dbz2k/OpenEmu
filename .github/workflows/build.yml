@@ -17,7 +17,9 @@ jobs:
         run: xcodebuild -workspace OpenEmu.xcworkspace -scheme "OpenEmu + Cores" -configuration Release
         
       - name: Tar files
-        run: tar -cvf openemu-product-release.tar ~/Library/Developer/Xcode/DerivedData/OpenEmu-*/Build/Products/Release
+        run: | 
+             tar -cvf openemu-product-release.tar ~/Library/Developer/Xcode/DerivedData/OpenEmu-*/Build/Products/Release
+             tar -cvf openemu.tar ~/Library/Developer/Xcode/DerivedData/OpenEmu-*/Build/Products/Release/OpenEmu.app
 
 
       - name: Upload Artifacts
@@ -26,5 +28,5 @@ jobs:
           name: openemu
           path: | 
                  openemu-product-release.tar
-                 ~/Library/Developer/Xcode/DerivedData/OpenEmu-*/Build/Products/Release/OpenEmu.app
+                 openemu.tar
           
