@@ -22,11 +22,16 @@ jobs:
              tar -cvf openemu.tar ~/Library/Developer/Xcode/DerivedData/OpenEmu-*/Build/Products/Release/OpenEmu.app
 
 
-      - name: Upload Artifacts
+      - name: Upload Artifacts DerivedData
         uses: actions/upload-artifact@v3
         with:
-          name: openemu
-          path: | 
-                 openemu-product-release.tar
-                 openemu.tar
+          name: openemu-product-release-deriveddata.zip
+          path: openemu-product-release.tar
+          
+      - name: Upload Artifact Binary
+        uses: actions/upload-artifact@v3
+        with:
+          name: openemu.zip
+          path: openemu.tar
+        
           
