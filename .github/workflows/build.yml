@@ -25,13 +25,13 @@ jobs:
       - name: Upload Artifacts DerivedData
         uses: actions/upload-artifact@v3
         with:
-          name: openemu-product-release-deriveddata.zip
+          name: openemu-product-release-deriveddata
           path: openemu-product-release.tar
           
       - name: Upload Artifact Binary
         uses: actions/upload-artifact@v3
         with:
-          name: openemu.zip
+          name: openemu
           path: openemu.tar
         
           
